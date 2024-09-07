@@ -1,0 +1,16 @@
+// LOGIN 
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password": "admin"
+}
+
+###
+// LOGOUT
+DELETE http://localhost:5000/logout
+
+### 
+// GET SELF INFO
+GET http://localhost:5000/me

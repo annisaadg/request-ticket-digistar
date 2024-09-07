@@ -1,0 +1,14 @@
+### GET TOTAL TICKETS (role-based) : untuk bagian 'total permintaan' dan 'task statistic'
+GET http://localhost:5000/total/tickets
+
+### GET TOTAL PRODUCT/PROJECT (khusus manager hanya get yg di PIC-in) : untuk bagian 'total project'
+GET http://localhost:5000/total/productprojects
+
+### GET TOTAL USERS (admin only) : untuk bagian 'total user'
+GET http://localhost:5000/total/users
+
+### GET TOTAL TICKETS (role-based) : untuk bagian 'dev team workload'
+GET http://localhost:5000/total/workload
+
+### GET ALL TICKETS : untuk bagian calendar. nanti di filter aja di frontent berdasarkan due date + filter isi data yang mau ditampilinnya
+GET http://localhost:5000/tickets

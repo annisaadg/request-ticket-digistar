@@ -1,0 +1,7 @@
+### 
+// SHOW REPORTS
+GET http://localhost:5000/report
+
+### 
+// DOWNLOAD REPORT AS XLSX FILE
+GET http://localhost:5000/report_download?format=xlsx

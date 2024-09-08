@@ -1,4 +1,4 @@
-// Create User (saran, di postman aja biar lebih gampang)
+// Create User (saran, di postman aja biar lebih gampang upload profile picture)
 POST http://localhost:5000/users
 Content-Type: multipart/form-data
 
@@ -6,6 +6,7 @@ Content-Type: multipart/form-data
 # email : text
 # password : text
 # confPassword : text
+# role (admin, user, manager, teknis) : text
 # nomor_handphone : text
 # profile_picture : file  |  profile_picture bisa null (tidak diisi)
 
@@ -32,3 +33,16 @@ Content-Type: multipart/form-data
 # confPassword : text
 # nomor_handphone : text
 # profile_picture : file 
+
+### create user tanpa nambah profile picture
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Non Teknis",
+    "email": "nonteknis@gmail.com",
+    "password": "nonteknis",
+    "confPassword": "nonteknis",
+    "role": "user",
+    "nomor_handphone": "0891234567890"
+}

@@ -1,3 +1,7 @@
+### GET USERS BY ROLE "manager"
+GET http://localhost:5000/users/manager
+
+###
 // CREATE PRODUCT/PROJECT | saran, di postman aja biar lebih gampang
 POST http://localhost:5000/productprojects
 Content-Type: multipart/form-data

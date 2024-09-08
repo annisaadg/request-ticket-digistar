@@ -2,6 +2,7 @@ import express from "express";
 import {
     getUsers,
     getUsersTeknis,
+    getUsersManager,
     getUserById,
     createUser,
     patchUser,
@@ -17,6 +18,7 @@ const allowedRoles = ['admin', 'manager'];
 
 router.get('/users', verifyUser, adminOnly, getUsers);
 router.get('/users/teknis', verifyUser, roleCheck(allowedRoles), getUsersTeknis);
+router.get('/users/manager', verifyUser, adminOnly, getUsersManager);
 router.get('/total/users', verifyUser, adminOnly, countUsers);
 router.get('/users/:id', verifyUser, adminOnly, getUserById);
 router.post('/users', verifyUser, adminOnly, upload.single('profile_picture'), createUser);

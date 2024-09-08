@@ -6,7 +6,7 @@ import { Readable } from 'stream';
 
 // Create a ticket response
 export const createTicketResponse = async (req, res) => {
-    const { ticket_id, insert_link } = req.body;
+    const { ticket_id, insert_link, description } = req.body;
     const author = req.userId; // Assuming authentication middleware sets req.userId
 
     try {
@@ -46,6 +46,7 @@ export const createTicketResponse = async (req, res) => {
         // Create the ticket response
         await TicketResponse.create({
             ticket_id,
+            description,
             insert_link,
             attachment,
             file_name,
@@ -53,8 +54,14 @@ export const createTicketResponse = async (req, res) => {
             author
         });
 
-        // Update the ticket status to "done"
-        await Ticket.update({ status: "done" }, { where: { id: ticket_id } });
+        // Update the ticket status to "done" and set issue_fix_date to current date
+        await Ticket.update(
+            { 
+                status: "done", 
+                issue_fixed_date: new Date() // Set issue_fix_date to the current date
+            }, 
+            { where: { id: ticket_id } }
+        );
 
         res.status(201).json({ msg: "Response created successfully and ticket status updated to 'done'" });
     } catch (error) {

@@ -151,7 +151,7 @@ export const patchUser = async (req, res) => {
 export const getUsers = async (req, res) => {
     try {
         const users = await User.findAll({
-            attributes: ['uuid', 'name', 'email', 'role', 'nomor_handphone', 'createdAt', 'profile_picture', 'profile_picture_filename', 'profile_picture_mimetype']
+            attributes: ['id', 'uuid', 'name', 'email', 'role', 'nomor_handphone', 'createdAt', 'profile_picture', 'profile_picture_filename', 'profile_picture_mimetype']
         });
 
         const response = users.map(user => {
@@ -161,6 +161,7 @@ export const getUsers = async (req, res) => {
             }
 
             return {
+                id: user.id,
                 uuid: user.uuid,
                 name: user.name,
                 email: user.email,
@@ -181,7 +182,7 @@ export const getUsers = async (req, res) => {
 export const getUsersTeknis = async (req, res) => {
     try {
         const users = await User.findAll({
-            attributes: ['uuid', 'name', 'email', 'role', 'nomor_handphone', 'createdAt', 'profile_picture', 'profile_picture_filename', 'profile_picture_mimetype'],
+            attributes: ['id', 'uuid', 'name', 'email', 'role', 'nomor_handphone', 'createdAt', 'profile_picture', 'profile_picture_filename', 'profile_picture_mimetype'],
             where: {
                 role: 'teknis'
             }
@@ -194,6 +195,41 @@ export const getUsersTeknis = async (req, res) => {
             }
 
             return {
+                id: user.id,
+                uuid: user.uuid,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+                nomor_handphone: user.nomor_handphone,
+                createdAt: user.createdAt,
+                profile_picture: profile_picture_base64,
+                profile_picture_filename: user.profile_picture_filename
+            };
+        });
+
+        res.status(200).json(response);
+    } catch (error) {
+        res.status(500).json({ msg: error.message });
+    }
+};
+
+export const getUsersManager = async (req, res) => {
+    try {
+        const users = await User.findAll({
+            attributes: ['id', 'uuid', 'name', 'email', 'role', 'nomor_handphone', 'createdAt', 'profile_picture', 'profile_picture_filename', 'profile_picture_mimetype'],
+            where: {
+                role: 'manager'
+            }
+        });
+
+        const response = users.map(user => {
+            let profile_picture_base64 = null;
+            if (user.profile_picture) {
+                profile_picture_base64 = user.profile_picture.toString('base64');
+            }
+
+            return {
+                id: user.id,
                 uuid: user.uuid,
                 name: user.name,
                 email: user.email,
@@ -215,7 +251,7 @@ export const getUserById = async (req, res) => {
     try {
         // Mengambil data pengguna dari database
         const user = await User.findOne({
-            attributes: ['uuid', 'name', 'email', 'role', 'nomor_handphone', 'createdAt', 'profile_picture', 'profile_picture_filename', 'profile_picture_mimetype'],
+            attributes: ['id', 'uuid', 'name', 'email', 'role', 'nomor_handphone', 'createdAt', 'profile_picture', 'profile_picture_filename', 'profile_picture_mimetype'],
             where: {
                 uuid: req.params.id
             }
@@ -233,6 +269,7 @@ export const getUserById = async (req, res) => {
 
         // Kirim respons dengan data pengguna
         res.status(200).json({
+            id: user.id,
             uuid: user.uuid,
             name: user.name,
             email: user.email,

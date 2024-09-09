@@ -1,9 +1,0 @@
-### GET TICKETS
-GET http://localhost:5000/tickets
-
-### DOWNLOAD TICKET'S ATTACHMENT BY TICKET'S UUID
-GET http://localhost:5000/tickets_download/099b2277-a356-4faf-9e50-155281e39ab8
-
-// di menu "Board", untuk filter ticket berdasarkan status 'to do', 'on-process', dan 'done' dari Frontend aja ya
-// di menu "Board", untuk adjust data ticket apa aja yg ditampilin juga sesuai di FE aja
-// di menu "Calendar" dan "Timeline" juga tampilin sesuai 'start_date' dan 'due_date' dari ticket

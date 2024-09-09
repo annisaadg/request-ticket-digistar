@@ -1,0 +1,15 @@
+### 
+// SHOW REPORTS
+GET http://localhost:5000/report
+
+### 
+// SHOW REPORTS DENGAN FILTER DUE DATE
+GET http://localhost:5000/report?due_date=2024-10-10
+
+### 
+// DOWNLOAD REPORT AS XLSX FILE
+GET http://localhost:5000/report_download?format=xlsx
+
+### 
+// DOWNLOAD REPORT AS XLSX FILE DENGAN FILTER DUE DATE
+GET http://localhost:5000/report_download?format=xlsx&due_date=2024-08-30

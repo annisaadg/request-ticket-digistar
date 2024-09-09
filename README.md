@@ -50,7 +50,7 @@ Setelah perubahan pada nomor 1 disimpan, hit API POST di Postman untuk menambahk
 Disini user pertama yaitu admin telah dibuat. 
 
 3. **Kembalikan permission 'verifyUser' dan 'adminOnly' yang dibahas pada nomor 1.**  <br />
-Setelah berhasil membuat user pertama, kembalikan permission seperti semula pada file backend\routes\UserRoute.js.
+Setelah berhasil membuat user pertama, kembalikan permission seperti semula pada file backend\routes\UserRoute.js.  <br />
 Before:
 ```
 router.post('/users', upload.single('profile_picture'), createUser);

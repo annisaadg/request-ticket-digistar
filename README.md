@@ -39,10 +39,10 @@ Selanjutnya, run ulang aplikasi
 node index
 ```
 
-2. **Hit POST request di Postman**
-Setelah perubahan pada nomor 1 disimpan, hit API POST di Postman untuk menambahkan user pertama, yaitu admin.
-![Screenshot 2024-09-09 225736](https://github.com/user-attachments/assets/17b337b2-fbfd-4b1a-b6c6-96dfc1bb574c)
-![Screenshot 2024-09-09 230355](https://github.com/user-attachments/assets/ffbbeca2-c8f4-42c1-96d9-f5dcefad652a)
+2. **Hit POST request di Postman**  <br />
+Setelah perubahan pada nomor 1 disimpan, hit API POST di Postman untuk menambahkan user pertama, yaitu admin.  <br />
+![Screenshot 2024-09-09 225736](https://github.com/user-attachments/assets/17b337b2-fbfd-4b1a-b6c6-96dfc1bb574c)  <br />
+![Screenshot 2024-09-09 230355](https://github.com/user-attachments/assets/ffbbeca2-c8f4-42c1-96d9-f5dcefad652a)  <br />
 Disini user pertama yaitu admin telah dibuat. 
 
 3. **Kembalikan permission 'verifyUser' dan 'adminOnly' yang dibahas pada nomor 1.**  <br />

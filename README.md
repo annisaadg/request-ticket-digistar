@@ -41,8 +41,8 @@ node index
 
 2. **Hit POST request di Postman**
 Setelah perubahan pada nomor 1 disimpan, hit API POST di Postman untuk menambahkan user pertama, yaitu admin.
-![headers](https://drive.google.com/file/d/1oc-5nSczyLFkJ3ZWIgvbwdFwR-Rch38H/view?usp=drive_link)
-![body request](https://drive.google.com/file/d/1okog9pdSexQIyW-tRlfsXb3HkqirEwQ3/view?usp=drive_link)
+![Screenshot 2024-09-09 225736](https://github.com/user-attachments/assets/17b337b2-fbfd-4b1a-b6c6-96dfc1bb574c)
+![Screenshot 2024-09-09 230355](https://github.com/user-attachments/assets/ffbbeca2-c8f4-42c1-96d9-f5dcefad652a)
 Disini user pertama yaitu admin telah dibuat. 
 
 3. **Kembalikan permission 'verifyUser' dan 'adminOnly' yang dibahas pada nomor 1.**  <br />

@@ -9,15 +9,19 @@ Belum adanya fitur request technical issue di Bigbox sehingga masih mengandalkan
 ```
 git clone https://github.com/annisaadg/request-ticket-digistar.git
 ```
+### Install dependencies
+```
+cd backend
+```
+```
+npm install
+```
 ### Atur Koneksi Database
 1. Buka file backend\config\Database.js
 2. Perhatikan nama schema yang didefinisikan ("digistar")
 3. Buat schema baru di database mysql dengan nama schema "digistar"
 
 ### Run backend
-```
-cd backend
-```
 ```
 node index
 ```

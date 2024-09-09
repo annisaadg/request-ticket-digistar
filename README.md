@@ -29,7 +29,7 @@ node index
 ## Dokumentasi API 
 ### Membuat user pertama, yaitu admin
 1. **Ubah permission agar dapat menambah user tanpa perlu login terlebih dahulu.**  <br />
-Buka file backend\routes\UserRoute.js. Lalu, hapus 'verifyUser' dan 'adminOnly' pada line ke-22.
+Buka file backend\routes\UserRoute.js. Lalu, hapus 'verifyUser' dan 'adminOnly' pada line ke-22. <br />
 Before:
 ```
 router.post('/users', verifyUser, adminOnly, upload.single('profile_picture'), createUser);

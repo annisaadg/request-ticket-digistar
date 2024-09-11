@@ -59,6 +59,10 @@ app.use(ReportRoute);
 
 store.sync();
 
+app.get("/", (req,res)=>{
+    res.send("Express on Vercel");
+});
+
 app.listen(process.env.APP_PORT || 5000, ()=> {
     console.log(`Server up and running on port ${process.env.PORT || 5000}`);
 });

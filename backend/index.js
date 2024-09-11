@@ -47,7 +47,7 @@ app.use(session({
 
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000'
+    origin: '*'
 }));
 app.use(express.json());
 app.use(UserRoute);
@@ -59,6 +59,6 @@ app.use(ReportRoute);
 
 store.sync();
 
-app.listen(process.env.APP_PORT, ()=> {
-    console.log('Server up and running...');
+app.listen(process.env.APP_PORT || 5000, ()=> {
+    console.log(`Server up and running on port ${process.env.PORT || 5000}`);
 });

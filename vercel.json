@@ -6,7 +6,7 @@
             "use": "@vercel/node"
         }
     ],
-    "rputes": [
+    "routes": [
         {
             "src": "/(.*)",
             "dest": "/"

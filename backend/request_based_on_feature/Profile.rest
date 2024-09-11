@@ -1,6 +1,6 @@
 ###
 // UPDATE SELF PROFILE   !! ROLE GABISA DI UPDATE !! (saran, di postman aja biar lebih gampang)
-PATCH http://localhost:5000/update_profile 
+PATCH http://localhost:3000/update_profile 
 Content-Type: multipart/form-data
 
 # name : text
@@ -12,4 +12,4 @@ Content-Type: multipart/form-data
 
 ### 
 // GET SELF INFO
-GET http://localhost:5000/me
+GET http://localhost:3000/me

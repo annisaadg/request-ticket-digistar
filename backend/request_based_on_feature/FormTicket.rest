@@ -1,8 +1,8 @@
 ### GET TICKETS : untuk filter by date, priority, dan status ticket yaitu "all", "new" (status = to do), "on-process", dan "done" bisa di frontent aja ya
-GET http://localhost:5000/tickets
+GET http://localhost:3000/tickets
 
 ### ADD (CREATE) NEW TICKET (saran, hit di postman aja biar enak)
-POST http://localhost:5000/tickets
+POST http://localhost:3000/tickets
 Content-Type: multipart/form-data
 # priority (low,medium,high) : text
 # due_date (year-month-day) : text
@@ -15,10 +15,10 @@ Content-Type: multipart/form-data
 
 ### 
 // GET ALL PRODUCT AND PROJECT
-GET http://localhost:5000/productprojects
+GET http://localhost:3000/productprojects
 
 ### DELETE A TICKET BY UUID
-DELETE http://localhost:5000/tickets/6caa8da2-491c-4ea2-b7ed-192c5b6ce05b
+DELETE http://localhost:3000/tickets/6caa8da2-491c-4ea2-b7ed-192c5b6ce05b
 
 ### Get a specific ticket by UUID (just in case if needed)
-GET http://localhost:5000/tickets/c3e560b1-d6f6-4ebd-9d85-c388a2fa5594
+GET http://localhost:3000/tickets/c3e560b1-d6f6-4ebd-9d85-c388a2fa5594

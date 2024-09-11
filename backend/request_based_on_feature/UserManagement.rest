@@ -1,5 +1,5 @@
 // Create User (saran, di postman aja biar lebih gampang upload profile picture)
-POST http://localhost:5000/users
+POST http://localhost:3000/users
 Content-Type: multipart/form-data
 
 # name : text
@@ -12,19 +12,19 @@ Content-Type: multipart/form-data
 
 ###
 // SHOW ALL USERS | return profile_picture dalam format base64
-GET http://localhost:5000/users
+GET http://localhost:3000/users
 
 ###
 // GET ONE SPECIFIC USER BY UUID (JUST IN-CASE IF NEEDED)
-GET http://localhost:5000/users/cafd7488-0a16-4c30-b90b-e386ba26938d
+GET http://localhost:3000/users/cafd7488-0a16-4c30-b90b-e386ba26938d
 
 ###
 // DELETE USER BY UUID
-DELETE http://localhost:5000/users/1
+DELETE http://localhost:3000/users/1
 
 ###
 // UPDATE/PATCH USER BY UUID   !! ROLE GABOLEH DI UPDATE !! (saran, di postman aja biar lebihh gampang)
-PATCH http://localhost:5000/users/b6a7c382-039d-455c-881f-1bb684d8ff80
+PATCH http://localhost:3000/users/b6a7c382-039d-455c-881f-1bb684d8ff80
 Content-Type: multipart/form-data
 
 # name : text
@@ -35,7 +35,7 @@ Content-Type: multipart/form-data
 # profile_picture : file 
 
 ### create user tanpa nambah profile picture
-POST http://localhost:5000/users
+POST http://localhost:3000/users
 Content-Type: application/json
 
 {

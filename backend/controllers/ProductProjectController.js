@@ -1,6 +1,5 @@
 import ProductProject from "../models/ProductProjectModel.js";
 import User from "../models/UserModel.js";
-import fs from 'fs';
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 const ALLOWED_MIMETYPES = ['image/jpeg', 'image/png', 'image/jpg'];
@@ -139,12 +138,9 @@ export const createProductProject = async (req, res) => {
             return res.status(400).json({ msg: "Invalid file type. Only JPG, PNG, and JPEG are allowed." });
         }
 
-        profile_picture = fs.readFileSync(req.file.path);  // Read the file from disk
+        profile_picture = req.file.buffer;  // Read the file from disk
         profile_picture_filename = req.file.originalname;            // Store the original filename
         profile_picture_mimetype = req.file.mimetype;                // Store the file's MIME type
-
-        // Optional: delete file after reading to prevent storage issues
-        fs.unlinkSync(req.file.path);
     }
 
     try {
@@ -210,12 +206,9 @@ export const patchProductProject = async (req, res) => {
             }
 
             // Read the file and store in updateData
-            updateData.profile_picture = fs.readFileSync(req.file.path);  // Read the file from disk
+            updateData.profile_picture = req.file.buffer;  // Read the file from disk
             updateData.profile_picture_filename = req.file.originalname;   // Store the original filename
             updateData.profile_picture_mimetype = req.file.mimetype;       // Store the file's MIME type
-
-            // Optional: delete the file after reading
-            fs.unlinkSync(req.file.path);
         }
 
         // Update the Product/Project with the new data

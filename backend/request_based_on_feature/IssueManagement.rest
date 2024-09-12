@@ -1,9 +1,9 @@
 ### GET USERS BY ROLE "manager"
-GET http://localhost:3000/users/manager
+GET http://request-ticket-digistar-api.vercel.app/users/manager
 
 ###
 // CREATE PRODUCT/PROJECT | saran, di postman aja biar lebih gampang
-POST http://localhost:3000/productprojects
+POST http://request-ticket-digistar-api.vercel.app/productprojects
 Content-Type: multipart/form-data
 
 # issue_type ('product' / 'project') : text
@@ -14,7 +14,7 @@ Content-Type: multipart/form-data
 
 ###
 // UPDATE PRODUCT/PROJECT | saran, di postman aja biar lebih gampang
-PATCH http://localhost:3000/productprojects/8b90743d-19c0-44ff-b7bc-f00b7ff8b334
+PATCH http://request-ticket-digistar-api.vercel.app/productprojects/8b90743d-19c0-44ff-b7bc-f00b7ff8b334
 Content-Type: multipart/form-data
 
 # issue_type ('product' / 'project') : text
@@ -25,12 +25,12 @@ Content-Type: multipart/form-data
 
 ### 
 // GET (SHOW) ALL PRODUCT/PROJECT
-GET http://localhost:3000/productprojects
+GET http://request-ticket-digistar-api.vercel.app/productprojects
 
 ###
 // GET (SHOW) SPECIFIC PRODUCT/PROJECT
-GET http://localhost:3000/productprojects/a3c4f6ee-380f-4fcb-b906-da5c3a6b47ce
+GET http://request-ticket-digistar-api.vercel.app/productprojects/a3c4f6ee-380f-4fcb-b906-da5c3a6b47ce
 
 ###
 // DELETE A PRODUCT/PROJECT
-DELETE http://localhost:3000/productprojects/6233571b-fff5-4693-a43e-aa54137774ad
+DELETE http://request-ticket-digistar-api.vercel.app/productprojects/6233571b-fff5-4693-a43e-aa54137774ad

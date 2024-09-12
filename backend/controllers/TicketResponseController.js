@@ -1,7 +1,6 @@
 import TicketResponse from "../models/TicketResponseModel.js";
 import Ticket from "../models/TicketModel.js";
 import User from "../models/UserModel.js";
-import fs from 'fs';
 import { Readable } from 'stream'; 
 
 // Create a ticket response
@@ -35,12 +34,9 @@ export const createTicketResponse = async (req, res) => {
         let mime_type = null;
 
         if (req.file) {
-            attachment = fs.readFileSync(req.file.path);  // Read the file from disk
+            attachment = req.file.buffer;  // Read the file from disk
             file_name = req.file.originalname;            // Store the original filename
             mime_type = req.file.mimetype;                // Store the file's MIME type
-
-            // Optional: delete file after reading to prevent storage issues
-            fs.unlinkSync(req.file.path);
         }
 
         // Create the ticket response
@@ -332,7 +328,7 @@ export const updateTicketResponse = async (req, res) => {
 
         // Handle file attachment update, if a new file is uploaded
         if (req.file) {
-            const attachment = fs.readFileSync(req.file.path);  // Read the new file from disk
+            const attachment = req.file.buffer;  // Read the new file from disk
             const file_name = req.file.originalname;            // Store the new filename
             const mime_type = req.file.mimetype;                // Store the new MIME type
 
@@ -340,9 +336,6 @@ export const updateTicketResponse = async (req, res) => {
             response.attachment = attachment;
             response.file_name = file_name;
             response.mime_type = mime_type;
-
-            // Optional: delete file after reading to prevent storage issues
-            fs.unlinkSync(req.file.path);
         }
 
         // Save the updated response to the database

@@ -1,19 +1,18 @@
 import User from "../models/UserModel.js";
 import argon2 from "argon2";
-import fs from 'fs';
 
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 const ALLOWED_MIMETYPES = ['image/jpeg', 'image/png', 'image/jpg'];
 const validRoles = ["admin", "user", "teknis", "manager"];
 
-export const createUser = async(req, res) =>{
-    const {name, email, password, confPassword, role, nomor_handphone} = req.body;
+export const createUser = async (req, res) => {
+    const { name, email, password, confPassword, role, nomor_handphone } = req.body;
 
     // Validasi input
     if (!name || name.trim() === '') return res.status(400).json({ msg: "Name is required" });
     if (!email || email.trim() === '') return res.status(400).json({ msg: "Email is required" });
     if (!role || role.trim() === '') return res.status(400).json({ msg: "Role is required" });
-    
+
     // Validasi role
     const normalizedRole = role.trim().toLowerCase();
     if (!validRoles.includes(normalizedRole)) return res.status(400).json({ msg: "Invalid role" });
@@ -38,12 +37,9 @@ export const createUser = async(req, res) =>{
             return res.status(400).json({ msg: "Invalid file type. Only JPG, PNG, and JPEG are allowed." });
         }
 
-        profile_picture = fs.readFileSync(req.file.path);  // Read the file from disk
-        profile_picture_filename = req.file.originalname;            // Store the original filename
-        profile_picture_mimetype = req.file.mimetype;                // Store the file's MIME type
-
-        // Optional: delete file after reading to prevent storage issues
-        fs.unlinkSync(req.file.path);
+        profile_picture = req.file.buffer;  // Use file buffer
+        profile_picture_filename = req.file.originalname;
+        profile_picture_mimetype = req.file.mimetype;
     }
 
     try {
@@ -64,13 +60,12 @@ export const createUser = async(req, res) =>{
         }
         res.status(500).json({ msg: error.message });
     }
-
 }
 
 export const patchUser = async (req, res) => {
     const userIdToUpdate = req.params.id;
     const loggedInUserId = req.userId; // Misalnya, id pengguna yang sedang login disimpan di req.userId
-    console.log('loggedInUserId', loggedInUserId);
+
     // Pastikan pengguna yang sedang login adalah admin atau memodifikasi akun mereka sendiri
     const loggedInUser = await User.findOne({
         where: { id: loggedInUserId }
@@ -117,12 +112,9 @@ export const patchUser = async (req, res) => {
             return res.status(400).json({ msg: "Invalid file type. Only JPG, PNG, and JPEG are allowed." });
         }
 
-        profile_picture = fs.readFileSync(req.file.path);  // Read the file from disk
-        profile_picture_filename = req.file.originalname;            // Store the original filename
-        profile_picture_mimetype = req.file.mimetype;                // Store the file's MIME type
-
-        // Optional: delete file after reading to prevent storage issues
-        fs.unlinkSync(req.file.path);
+        profile_picture = req.file.buffer;  // Use file buffer
+        profile_picture_filename = req.file.originalname;
+        profile_picture_mimetype = req.file.mimetype;
     }
 
     try {
@@ -146,7 +138,7 @@ export const patchUser = async (req, res) => {
         }
         res.status(500).json({ msg: error.message });
     }
-};
+}
 
 export const getUsers = async (req, res) => {
     try {

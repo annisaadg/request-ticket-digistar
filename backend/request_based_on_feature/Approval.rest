@@ -1,8 +1,8 @@
 ### GET TICKETS : untuk filter dan sort disesuaikan sama UI aja ya, termasuk data ticket yg ditampilkan disesuaikan aja sama UI
-GET http://localhost:3000/tickets
+GET http://request-ticket-digistar-api.vercel.app/tickets
 
 ### ASSIGN TICKET TO ROLE TEKNIS AND OR APPROVE/DECLINE DI BAGIAN STATUS
-PATCH http://localhost:3000/tickets/6e89d3c2-e70e-4d24-b185-eaad5610eecd
+PATCH http://request-ticket-digistar-api.vercel.app/tickets/6e89d3c2-e70e-4d24-b185-eaad5610eecd
 Content-Type: application/json
 
 {
@@ -13,10 +13,10 @@ Content-Type: application/json
 // status: jika klik 'X' maka update status = decline. jika 'V' maka update status = to do
 
 ### GET USERS BY ROLE "teknis"
-GET http://localhost:3000/users/teknis
+GET http://request-ticket-digistar-api.vercel.app/users/teknis
 
 ### GET ATTACHMENT (TICKET RESPONSE) BY TICKET ID: ditampilkan ketika logo attachment di klik, ketika status ticket = done
-GET http://localhost:3000/tickets/2/responses
+GET http://request-ticket-digistar-api.vercel.app/tickets/2/responses
 
 ### DOWNLOAD ATTACHMENT FILE BY TICKET RESPONSE UUID : ketika ticket response ditampilkan di pop-up
-GET http://localhost:3000/attachments/822b9807-e13d-4e73-bcd1-a2cfb82c5efc
+GET http://request-ticket-digistar-api.vercel.app/attachments/822b9807-e13d-4e73-bcd1-a2cfb82c5efc

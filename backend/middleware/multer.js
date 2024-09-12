@@ -1,15 +1,7 @@
 import multer from 'multer';
-import path from 'path';
 
 // Set storage engine for Multer
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './attachment_example'); // Folder to save files
-    },
-    filename: (req, file, cb) => {
-        cb(null, `${Date.now()}_${file.originalname}`);
-    }
-});
+const storage = multer.memoryStorage(); // Use memory storage
 
 // Initialize Multer with file type validation
 const upload = multer({

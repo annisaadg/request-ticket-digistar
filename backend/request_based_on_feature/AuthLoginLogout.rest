@@ -1,5 +1,5 @@
 // LOGIN 
-POST http://localhost:3000/login
+POST http://request-ticket-digistar-api.vercel.app/login
 Content-Type: application/json
 
 {
@@ -9,8 +9,8 @@ Content-Type: application/json
 
 ###
 // LOGOUT
-DELETE http://localhost:3000/logout
+DELETE http://request-ticket-digistar-api.vercel.app/logout
 
 ### 
 // GET SELF INFO
-GET http://localhost:3000/me
+GET http://request-ticket-digistar-api.vercel.app/me

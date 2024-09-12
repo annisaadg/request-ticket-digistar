@@ -1,15 +1,15 @@
 ### 
 // SHOW REPORTS
-GET http://localhost:3000/report
+GET http://request-ticket-digistar-api.vercel.app/report
 
 ### 
 // SHOW REPORTS DENGAN FILTER DUE DATE
-GET http://localhost:3000/report?due_date=2024-10-10
+GET http://request-ticket-digistar-api.vercel.app/report?due_date=2024-10-10
 
 ### 
 // DOWNLOAD REPORT AS XLSX FILE
-GET http://localhost:3000/report_download?format=xlsx
+GET http://request-ticket-digistar-api.vercel.app/report_download?format=xlsx
 
 ### 
 // DOWNLOAD REPORT AS XLSX FILE DENGAN FILTER DUE DATE
-GET http://localhost:3000/report_download?format=xlsx&due_date=2024-08-30
+GET http://request-ticket-digistar-api.vercel.app/report_download?format=xlsx&due_date=2024-08-30

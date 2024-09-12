@@ -1,7 +1,6 @@
 import Ticket from "../models/TicketModel.js";
 import User from "../models/UserModel.js";
 import ProductProject from "../models/ProductProjectModel.js";
-import fs from "fs";
 import { Readable } from 'stream'; 
 
 export const downloadTicketAttachment = async (req, res) => {
@@ -147,12 +146,9 @@ export const createTicket = async (req, res) => {
         let attachment_mimetype = null;
 
         if (req.file) {
-            attachment_file = fs.readFileSync(req.file.path);  // Read the file from disk
+            attachment_file = req.file.buffer;  // Read the file from disk
             attachment_filename = req.file.originalname;       // Store the original filename
             attachment_mimetype = req.file.mimetype;           // Store the file's mimetype
-
-            // Optional: delete file after reading to prevent storage issues
-            fs.unlinkSync(req.file.path);
         }
 
         const issue_fixed_date = status === 'done' ? new Date() : null;
